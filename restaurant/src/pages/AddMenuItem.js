@@ -8,12 +8,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 function AddMenuItem() {
     return (
       <div className="App">
-        <Navbar bg="light" expand="lg">
-              <Navbar.Brand href="#home">Jerry's Berrys</Navbar.Brand>
-              <Button variant="outline-info">Select Restaurant</Button>
-              <Button variant="outline-info">View Active Orders</Button>
-              <Button href="#" variant="outline-info">Edit Menu</Button>
-          </Navbar>
+
           <Container>
               <Form>
                   <Form.Group controlId="menuForm.ControlInput1">
