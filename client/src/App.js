@@ -18,13 +18,9 @@ function App() {
             <Button variant="outline-info">Cart</Button>
         </Navbar>
         <Container>
-            <Card>
-                <ListGroup variant="flush">
-                    <MenuItem name={"Strawberries"}/>
-                    <MenuItem name={"Blueberries"}/>
-                    <MenuItem name={"Blackberries"}/>
-                </ListGroup>
-            </Card>
+            <MenuItem name={"Strawberries"} description={"A delicious berry"}/>
+            <MenuItem name={"Blueberries"} description={"A delicious berry"}/>
+            <MenuItem name={"Blackberries"} description={"A delicious berry"}/>
         </Container>
         <Navbar fixed="bottom" bg={"light"} expand={"lg"} style={{"padding":"0px", 'width':'100%'}}>
             <Row className={"justify-content-center"} style={{"width":"100%"}}>

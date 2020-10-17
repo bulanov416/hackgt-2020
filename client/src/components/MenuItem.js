@@ -4,23 +4,28 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Card from "react-bootstrap/Card";
 
 function MenuItem(props) {
 
     const { name, description } = props;
 
     return (
-        <ListGroup.Item>
-            <Row style={{'width':'100%'}}>
-                <Col>
-                    <p>{ name }</p>
-                    <p> A delicious berry</p>
-                </Col>
-                <Col>
-                    <Button variant={'outline-success'} className={"float-right"}>+</Button>
-                </Col>
-            </Row>
-        </ListGroup.Item>
+        <>
+            <Card>
+                <Card.Body>
+                    <Row style={{'width':'100%'}}>
+                        <Col>
+                            <Card.Title>{name}</Card.Title>
+                            <Card.Subtitle className="mb-2 text-muted"> { description } </Card.Subtitle>
+                        </Col>
+                        <Col>
+                            <Button variant={'outline-success'} className={"float-right"}>+</Button>
+                        </Col>
+                    </Row>
+                </Card.Body>
+            </Card>
+        </>
     );
 }
 
