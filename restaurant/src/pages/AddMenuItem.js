@@ -15,7 +15,29 @@ function AddMenuItem() {
           </Navbar>
           <InputGroup className="mb-3">
                 <InputGroup.Prepend>
-                    <InputGroup.Text id="inputGroup-sizing-default">Add Item</InputGroup.Text>
+                    <InputGroup.Text id="inputGroup-sizing-default">Item Name</InputGroup.Text>
+                </InputGroup.Prepend>
+                <FormControl inputRef={ref => { this.myInput = ref; }}
+                    aria-label="Add Item"
+                    aria-describedby="inputGroup-sizing-default"
+                />
+                <Button as="input" type="submit" value="Submit" />{' '}
+          </InputGroup>
+
+          <InputGroup className="mb-3">
+                <InputGroup.Prepend>
+                    <InputGroup.Text id="inputGroup-sizing-default">Price</InputGroup.Text>
+                </InputGroup.Prepend>
+                <FormControl inputRef={ref => { this.myInput = ref; }}
+                    aria-label="Add Item"
+                    aria-describedby="inputGroup-sizing-default"
+                />
+                <Button as="input" type="submit" value="Submit" />{' '}
+          </InputGroup>
+
+          <InputGroup className="mb-3">
+                <InputGroup.Prepend>
+                    <InputGroup.Text id="inputGroup-sizing-default">Description</InputGroup.Text>
                 </InputGroup.Prepend>
                 <FormControl inputRef={ref => { this.myInput = ref; }}
                     aria-label="Add Item"
