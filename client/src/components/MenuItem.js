@@ -1,6 +1,5 @@
 import React from 'react';
 
-import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -19,8 +18,8 @@ function MenuItem(props) {
                             <Card.Title>{name}</Card.Title>
                             <Card.Subtitle className="mb-2 text-muted"> { description } </Card.Subtitle>
                         </Col>
-                        <Col>
-                            <Button variant={'outline-success'} className={"float-right"}>+</Button>
+                        <Col style={{"paddingRight":"0px"}}>
+                            <Button variant={'outline-success'} className={"float-right"} style={{'marginTop':'7px'}}>+</Button>
                         </Col>
                     </Row>
                 </Card.Body>
