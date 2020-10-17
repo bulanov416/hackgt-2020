@@ -1,8 +1,9 @@
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
-import InputGroup from 'react-bootstrap/InputGroup';
+import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import FormControl from 'react-bootstrap/FormControl';
+import Container from 'react-bootstrap/Container';
+import InputGroup from 'react-bootstrap/InputGroup';
 
 function AddMenuItem() {
     return (
@@ -13,40 +14,46 @@ function AddMenuItem() {
               <Button variant="outline-info">View Active Orders</Button>
               <Button href="#" variant="outline-info">Edit Menu</Button>
           </Navbar>
-          <InputGroup className="mb-3">
-                <InputGroup.Prepend>
-                    <InputGroup.Text id="inputGroup-sizing-default">Item Name</InputGroup.Text>
-                </InputGroup.Prepend>
-                <FormControl inputRef={ref => { this.myInput = ref; }}
-                    aria-label="Add Item"
-                    aria-describedby="inputGroup-sizing-default"
-                />
-                <Button as="input" type="submit" value="Submit" />{' '}
-          </InputGroup>
-
-          <InputGroup className="mb-3">
-                <InputGroup.Prepend>
-                    <InputGroup.Text id="inputGroup-sizing-default">Price</InputGroup.Text>
-                </InputGroup.Prepend>
-                <FormControl inputRef={ref => { this.myInput = ref; }}
-                    aria-label="Add Item"
-                    aria-describedby="inputGroup-sizing-default"
-                />
-                <Button as="input" type="submit" value="Submit" />{' '}
-          </InputGroup>
-
-          <InputGroup className="mb-3">
-                <InputGroup.Prepend>
-                    <InputGroup.Text id="inputGroup-sizing-default">Description</InputGroup.Text>
-                </InputGroup.Prepend>
-                <FormControl inputRef={ref => { this.myInput = ref; }}
-                    aria-label="Add Item"
-                    aria-describedby="inputGroup-sizing-default"
-                />
-                <Button as="input" type="submit" value="Submit" />{' '}
-          </InputGroup>
+          <Container>
+              <Form>
+                  <Form.Group controlId="menuForm.ControlInput1">
+                      <Form.Label>Menu Item</Form.Label>
+                      <Form.Control placeholder='10" Pizza'/>
+                  </Form.Group>
+                  <Form.Group  controlId="menuForm.ControlInput2">
+                      <Form.Label>Price</Form.Label>
+                      <InputGroup>
+                          <InputGroup.Prepend>
+                              <InputGroup.Text id="inputGroupPrepend">$</InputGroup.Text>
+                          </InputGroup.Prepend>
+                          <Form.Control
+                              type="number"
+                              placeholder="5.00"
+                              aria-describedby="inputGroupPrepend"
+                              name="price"
+                          />
+                      </InputGroup>
+                  </Form.Group>
+                  <Form.Group controlId="menuForm.ControlSelect1">
+                      <Form.Label>Category</Form.Label>
+                      <Form.Control as="select">
+                          <option>Breakfast</option>
+                          <option>Lunch</option>
+                          <option>Dinner</option>
+                          <option>Drinks</option>
+                      </Form.Control>
+                  </Form.Group>
+                  <Form.Group controlId="menuForm.ControlTextarea1">
+                      <Form.Label>Description</Form.Label>
+                      <Form.Control as="textarea" rows="3" />
+                  </Form.Group>
+                  <Button size = {'lg'} variant="primary" type="submit" block>
+                      Submit
+                  </Button>
+              </Form>
+          </Container>
       </div>
     );
   }
-  
+
   export default AddMenuItem;
