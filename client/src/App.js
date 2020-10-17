@@ -1,24 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import Navbar from 'react-bootstrap/Navbar';
+import Card from 'react-bootstrap/Card';
+import ListGroup from 'react-bootstrap/ListGroup';
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
+import MenuItem from './components/MenuItem.js';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+        <Navbar bg="light" expand="lg">
+            <Navbar.Brand href="#home">Jerry's Berrys</Navbar.Brand>
+            <Button variant="outline-info">Cart</Button>
+        </Navbar>
+        <Container>
+            <Card>
+                <ListGroup variant="flush">
+                    <MenuItem name={"Strawberries"}/>
+                    <MenuItem name={"Blueberries"}/>
+                    <MenuItem name={"Blackberries"}/>
+                </ListGroup>
+            </Card>
+        </Container>
+        <Navbar fixed="bottom" bg={"light"} expand={"lg"} style={{"padding":"0px", 'width':'100%'}}>
+            <Row className={"justify-content-center"} style={{"width":"100%"}}>
+                <Col style={{"paddingRight":"0px"}}>
+                    <Button size={'lg'} variant={"success"} style={{"width":"105%"}}>Checkout</Button>
+                </Col>
+            </Row>
+        </Navbar>
     </div>
   );
 }
