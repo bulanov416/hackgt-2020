@@ -10,6 +10,7 @@ import Cart from './pages/Cart.js';
 import MenuItemObject from './models/MenuItemObject';
 
 import firebase from 'firebase';
+import OrderHistory from '../../restaurant/src/pages/OrderHistory.js';
 
 const firebaseConfig = {
     apiKey: "AIzaSyAUrlthvN7-mzjShK52AfthkX6yepCuwgk",
