@@ -5,23 +5,33 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from "react-bootstrap/Card";
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
+
 function CartItem(props) {
 
-    const { name, quantity, price } = props;
+    const { name, quantity, price, canDelete } = props;
+    const element = <FontAwesomeIcon icon={faTrash} />
 
     return (
         <>
             <Card>
                 <Card.Body>
                     <Row style={{'width':'100%'}}>
-                        <Col>
-                            <Card.Title>{name}</Card.Title>
-                            <Card.Subtitle className="mb-2 text-muted"> { quantity } </Card.Subtitle>
-                            <Card.Subtitle className="mb-2 text-muted"> { price }</Card.Subtitle>
+                        <Col sm={1} xs={2}>
+                            <Card.Title className="mb-2 text-muted"> { quantity } </Card.Title>
                         </Col>
-                        <Col style={{"paddingRight":"0px"}}>
-                            <Button variant={'outline-success'} className={"float-right"} style={{'marginTop':'7px'}}>+</Button>
-                            <Button variant={'outline-success'} className={"float-right"} style={{'marginTop':'7px'}}>-</Button>
+                        <Col sm = {8} xs={6}>
+                            <Card.Title>{name}</Card.Title>
+                        </Col>
+                        <Col sm = {2} xs={3}>
+                            <Card.Title className="mb-2 text-muted"> { price }</Card.Title>
+                        </Col>
+                        <Col sm= {1} style={{"paddingRight":"0px"}} xs={1}>
+                            { canDelete &&
+                            <Button variant={'outline-danger'} className={"float-right"} style={{'marginTop':'7px'}}>{element}</Button> 
+                            }
+                            {/* <Button variant={'outline-success'} className={"float-right"} style={{'marginTop':'7px'}}>+</Button>  */}
                         </Col>
                     </Row>
                 </Card.Body>
