@@ -62,10 +62,11 @@ function AddMenuItem(props) {
                     <Form.Group controlId="menuForm.ControlSelect1">
                         <Form.Label>Category</Form.Label>
                         <Form.Control as="select" onChange={categoryChangeHandler}>
-                            <option>Breakfast</option>
-                            <option>Lunch</option>
-                            <option>Dinner</option>
-                            <option>Drinks</option>
+                            <option>Appetizer</option>
+                            <option>Entree</option>
+                            <option>Side</option>
+                            <option>Dessert</option>
+                            <option>Beverage</option>
                         </Form.Control>
                     </Form.Group>
                     <Form.Group controlId="menuForm.ControlTextarea1">
