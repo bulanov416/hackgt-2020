@@ -14,12 +14,14 @@ function Menu(props) {
     const dessertItems = [];
     const beverageItems = [];
     const menuItems = [];
-
+    
     if (items != null) {
         items.forEach((item) => { if (item.name.length != 0) {
             menuItems.push(<MenuItem name={item.name} description={item.description} price = {item.price} key={item.uuid}/>);
         }});
     }
+
+
 
     return(
         <Container style={{'padding':'50px'}}>
