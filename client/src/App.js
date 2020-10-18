@@ -11,6 +11,8 @@ import MenuItemObject from './models/MenuItemObject';
 
 import firebase from 'firebase';
 
+import loading from './static/assets/loading_gif.gif';
+
 const firebaseConfig = {
     apiKey: "AIzaSyAUrlthvN7-mzjShK52AfthkX6yepCuwgk",
     authDomain: "hackgt2020-5847e.firebaseapp.com",
@@ -30,8 +32,9 @@ function App() {
             querySnapshot.forEach(function(doc) {
                 let restaurantId = doc.id;
                 console.log(restaurantId);
-                database.collection('restaurants').doc(restaurantId).collection('menuItems').get().then(function(querySnapshot2) {
+                database.collection('restaurants').doc(doc.id).collection('menuItems').get().then(function(querySnapshot2) {
                     querySnapshot2.forEach(function(doc2) {
+                        console.log("CurrentID: ", doc2.id)
                         let category = doc2.get('Category');
                         let description = doc2.get('Description');
                         let name = doc2.get('Name');
@@ -55,6 +58,9 @@ function App() {
             <Button variant="outline-info">Cart</Button>
         </Navbar>
         <Cart />
+        <div style={{'width': '100%', 'textAlign': 'center'}}>
+            <img src={loading} style={{'width': '20px'}} alt='loading...'></img>
+        </div>
         <Navbar fixed="bottom" bg={"light"} expand={"lg"} style={{"padding":"0px", 'width':'100%'}}>
             <Row className={"justify-content-center"} style={{"width":"100%"}}>
                 <Col style={{"paddingRight":"0px"}}>
