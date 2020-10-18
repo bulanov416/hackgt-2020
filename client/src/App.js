@@ -21,8 +21,6 @@ function App(props) {
                 <Navbar.Brand href="#home">Welcome to Olive Garden!</Navbar.Brand>
                 <Button variant="outline-info">View Cart</Button>
             </Navbar>
-            <h1 class="text-center">Menu</h1>
-            <br></br>
             { pageIndex === 0 ? <Menu items = {menuItems} /> : <></>}
             { pageIndex === 1 ? <Cart /> : <></>}
             { pageIndex === 2 ? <Checkout onSubmit = {() => {setPageIndex(3);}
