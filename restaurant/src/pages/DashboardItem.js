@@ -17,7 +17,8 @@ function DashboardItem(props) {
                             <Card.Text className="mb-2 text-muted">Successfully served { total } parties within the past week.</Card.Text>
                         </Col>
                         <Col style={{"paddingRight":"0px"}}>
-                            <Card.Text className="mb-2 text-muted"> {days} and from {times} were the busiest times this week.</Card.Text>
+                            <Card.Text className="mb-2 text-muted"> {days} were the busiest days this week.</Card.Text>
+                            <Card.Text className="mb-2 text-muted"> {times} was the busiest time this week.</Card.Text>
                         </Col>
                     </Row>
                 </Card.Body>
