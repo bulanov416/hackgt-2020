@@ -6,13 +6,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 import Menu from './pages/Menu.js';
-import Cart from './pages/Cart.js';
-import MenuItemObject from './models/MenuItemObject';
-
-import firebase from 'firebase';
-import OrderHistory from '../../restaurant/src/pages/OrderHistory.js';
-
-import loading from './static/assets/loading_gif.gif';
 
 const firebaseConfig = {
     apiKey: "AIzaSyAUrlthvN7-mzjShK52AfthkX6yepCuwgk",

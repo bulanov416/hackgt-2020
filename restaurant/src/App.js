@@ -2,7 +2,7 @@ import React from 'react';
 
 import AddMenuItem from "./pages/AddMenuItem";
 import RestaurantNavbar from "./components/RestaurantNavbar";
-import OrderHistory from '../../restaurant/src/pages/OrderHistory.js';
+import OrderHistory from './pages/OrderHistory.js';
 import ActiveOrders from "./pages/ActiveOrders";
 
 function App(props) {

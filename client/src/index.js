@@ -4,7 +4,6 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Firebase from "./components/Firebase";
-import express from 'express';
 
 ReactDOM.render(
   <React.StrictMode>
