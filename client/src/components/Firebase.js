@@ -32,7 +32,8 @@ function Firebase(props) {
                         let description = doc2.get('Description');
                         let name = doc2.get('Name');
                         let uuid = doc2.id;
-                        let currentMenuItem = new MenuItemObject(category, name, description, uuid);
+                        let price = doc2.get('Price');
+                        let currentMenuItem = new MenuItemObject(category, name, description, uuid, price);
                         menuItemsArray.push(currentMenuItem);
                     });
                     setMenuItems(menuItemsArray);
