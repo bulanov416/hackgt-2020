@@ -7,9 +7,8 @@ import Alert from "react-bootstrap/Alert";
 function Checkout(props) {
 
     const {onSubmit} = props;
-
     return(
-        <Container style={{'padding':'200px'}}>
+        <Container>
             <h1 class="text-center">Checkout</h1>
             <br></br>
               <Alert variant="primary">

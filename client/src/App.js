@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -17,14 +18,15 @@ function App(props) {
 
     return (
         <div>
-            <Navbar bg="light" expand="lg">
+            <Navbar bg="light" expand="lg" style={{'zIndex': '2'}}>
                 <Navbar.Brand href="#home">Welcome to Olive Garden!</Navbar.Brand>
-                <Button variant="outline-info" onClick={() => {
-                    setPageIndex(1);
-                }}>View Cart</Button>
-                <Button variant="outline-info" onClick={() => {
-                    setPageIndex(0);
-                }}>View Menu</Button>
+                <Navbar.Toggle aria-controls='basic-navbar-nav'/>
+                <Navbar.Collapse id='basic-navbar-nav'>
+                    <Nav className='mr-auto'>
+                        <Nav.Link href={"#"} onClick={() => {setPageIndex(1)}}>View Cart</Nav.Link>
+                        <Nav.Link href={'#'} onClick={() => {setPageIndex(0)}}>View Menu</Nav.Link>
+                    </Nav>
+                </Navbar.Collapse>
             </Navbar>
             { pageIndex === 0 ? <Menu items = {menuItems} /> : <></>}
             { pageIndex === 1 ? <Cart items = {menuItems} /> : <></>}
@@ -35,9 +37,14 @@ function App(props) {
                     let data = [];
                     menuItems.forEach((item) => {
                         if (wholeCart[item.name] != null) {
-                            data.push({"name":item.name, "count":wholeCart[item.name], "comments": ""});
+                            data.push(JSON.stringify({"name":item.name, "count":wholeCart[item.name], "comments": ""}));
                         }
                     });
+                    let currentURL = window.location.search.substring(1);
+                    database.collection('restaurants').doc('rFxSt5fTT3Kp4NphAomx').collection('tables').doc(currentURL).set({
+                        orders: data,
+                        status: 'Order Received'
+                    })
                 }
             } totalPrice = {sessionStorage.getItem("total")}/> : <></>}
             { pageIndex === 3 ? <Dining /> : <></>}
