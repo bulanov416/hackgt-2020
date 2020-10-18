@@ -5,7 +5,9 @@ import Container from "react-bootstrap/Container";
 
 function Cart() {
     return(
-        <Container style={{'padding':'0px'}}>
+        <Container style={{'padding':'50px'}}>
+            <h1 class="text-center">Cart</h1>
+            <br></br>
             <CartItem name={"Strawberries"} quantity={"x2"} price={"$2.50"} canDelete hasQuantity/>
             <CartItem name={"Blackberries"} quantity={"x2"} price={"$2.50"} canDelete hasQuantity/>
             <CartItem name={"Cherries"} quantity={"x2"} price={"$2.50"} canDelete hasQuantity/>

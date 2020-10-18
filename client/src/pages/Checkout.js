@@ -7,6 +7,8 @@ import Alert from "react-bootstrap/Alert";
 function Checkout(props) {
     return(
         <Container style={{'padding':'200px'}}>
+            <h1 class="text-center">Checkout</h1>
+            <br></br>
               <Alert variant="primary">
                 Your total is ${props.totalPrice}
               </Alert>
@@ -28,7 +30,7 @@ function Checkout(props) {
                     <Form.Control type="text" placeholder="CVV" />
                 </Form.Group>
                 <Button variant="primary" type="submit">
-                    Submit
+                    Complete Payment
                 </Button>
             </Form>
         </Container>
