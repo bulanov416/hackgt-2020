@@ -3,12 +3,15 @@ import React from 'react';
 import AddMenuItem from "./pages/AddMenuItem";
 import RestaurantNavbar from "./components/RestaurantNavbar";
 import OrderHistory from '../../restaurant/src/pages/OrderHistory.js';
+import ActiveOrders from "./pages/ActiveOrders";
 
-function App() {
+function App(props) {
+  const { database } = props;
+
   return (
     <div className="App">
       <RestaurantNavbar/>
-        <OrderHistory/>
+        <AddMenuItem database = { database }/>
     </div>
   );
 }
