@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import Cart from './pages/Cart';
 import Checkout from './pages/Checkout'
+import Dining from './pages/Dining'
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Firebase from "./components/Firebase";

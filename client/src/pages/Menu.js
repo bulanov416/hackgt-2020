@@ -16,7 +16,9 @@ function Menu(props) {
     }
 
     return(
-        <Container style={{'padding':'0px'}}>
+        <Container style={{'padding':'50px'}}>
+            <h1 class="text-center">Menu</h1>
+            <br></br>
             {
                 (items != null) ? menuItems :
                 <div style={{'width': '100%', 'textAlign': 'center'}}>
