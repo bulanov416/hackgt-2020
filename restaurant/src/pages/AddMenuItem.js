@@ -74,7 +74,6 @@ function AddMenuItem(props) {
                     </Form.Group>
                     <Button size = {'lg'} variant="primary" type="" block onClick={() => {
                         let tempName = itemName;
-                        console.log("ITS HAPPENING");
                         let tempPrice = price;
                         let tempCategory = category;
                         let tempDescription = description;
@@ -85,7 +84,6 @@ function AddMenuItem(props) {
                             Description: tempDescription
                         })
                         .then(function() {
-                            console.log("IT WORKED");
                             document.location = "/";
                         })
                         .catch(function(err) {
