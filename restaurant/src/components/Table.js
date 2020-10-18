@@ -8,7 +8,7 @@ import Card from "react-bootstrap/Card";
 
 function Table(props) {
 
-    const { name, description } = props;
+    const { name, description, price } = props;
 
     return (
         <>
@@ -18,6 +18,7 @@ function Table(props) {
                         <Col>
                             <Card.Title>{name}</Card.Title>
                             <Card.Subtitle className="mb-2 text-muted"> { description } </Card.Subtitle>
+                            <Card.Subtitle className="mb-2 text-muted"> { price } </Card.Subtitle>
                         </Col>
                     </Row>
                 </Card.Body>
