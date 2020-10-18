@@ -15,8 +15,6 @@ function Cart() {
         });
     }
 
-
-
     return(
         <Container style={{'padding':'50px'}}>
             <h1 class="text-center">Cart</h1>

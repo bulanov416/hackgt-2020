@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 
 import MenuItem from "../components/MenuItem";
 import Container from "react-bootstrap/Container";
@@ -14,14 +14,18 @@ function Menu(props) {
     const dessertItems = [];
     const beverageItems = [];
     const menuItems = [];
-    
+
+    useEffect(() => {
+        if (!sessionStorage.getItem("cart")) {
+            sessionStorage.setItem("cart", "{}");
+        }
+    }, []);
+
     if (items != null) {
         items.forEach((item) => { if (item.name.length != 0) {
             menuItems.push(<MenuItem name={item.name} description={item.description} price = {item.price} key={item.uuid}/>);
         }});
     }
-
-
 
     return(
         <Container style={{'padding':'50px'}}>

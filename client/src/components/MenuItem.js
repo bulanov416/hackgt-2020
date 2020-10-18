@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
@@ -8,8 +8,7 @@ import Card from "react-bootstrap/Card";
 function MenuItem(props) {
 
     const { name, description, price } = props;
-    let wholeCart = [];
-    sessionStorage.setItem("cart", wholeCart);
+
     return (
         <>
             <Card>
@@ -24,9 +23,13 @@ function MenuItem(props) {
                         </Col>
                         <Col style={{"paddingRight":"0px"}}>
                             <Button variant={'outline-success'} className={"float-right"} style={{'marginTop':'7px'}} onClick={() => {
-                                let temp = [name, description, price];
-                                wholeCart.push(temp);
-                                console.log("Adding temp to whole cart: ", temp);
+                                const cart = JSON.parse(sessionStorage.getItem("cart"));
+                                if (cart[name] != null) {
+                                    cart[name] = cart[name] + 1;
+                                } else {
+                                    cart[name] = 1;
+                                }
+                                sessionStorage.setItem("cart", JSON.stringify(cart));
                             }}>+</Button>
                         </Col>
                     </Row>
