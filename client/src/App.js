@@ -27,7 +27,7 @@ function App(props) {
                 }}>View Menu</Button>
             </Navbar>
             { pageIndex === 0 ? <Menu items = {menuItems} /> : <></>}
-            { pageIndex === 1 ? <Cart /> : <></>}
+            { pageIndex === 1 ? <Cart items = {menuItems} /> : <></>}
             { pageIndex === 2 ? <Checkout onSubmit = {
                 () => {setPageIndex(3);}
             } /> : <></>}
