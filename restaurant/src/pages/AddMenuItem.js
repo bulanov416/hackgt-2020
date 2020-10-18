@@ -18,7 +18,7 @@ function AddMenuItem(props) {
 
     const [ itemName, setItemName ] = useState("");
     const [ price, setPrice] = useState(0);
-    const [ category, setCategory ] = useState("Breakfast");
+    const [ category, setCategory ] = useState("Appetizer");
     const [ description, setDescription ] = useState("");
 
     const menuItemChangeHandler = (event) => {
