@@ -74,7 +74,7 @@ function NCRRequest(path, body, headers, method) {
         headers: headers,
         body: convertVariables(body),
         redirect: 'follow',
-        url: environment["cors-anywhere"] + varpath,
+        url: varpath,
         mode: 'cors',
     };
 
@@ -85,6 +85,7 @@ function NCRRequest(path, body, headers, method) {
     const sharedKey = environment['bsp-shared-key'];
     environment['bsp-access-key'] = `AccessKey ${sharedKey}:${signature}`;
 
+    console.log(environment['bsp-access-key']);
     requestOptions.headers.append("Authorization", environment['bsp-access-key']);
 
     return new Promise((resolve, reject) => {
