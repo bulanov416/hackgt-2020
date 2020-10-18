@@ -29,8 +29,17 @@ function App(props) {
             { pageIndex === 0 ? <Menu items = {menuItems} /> : <></>}
             { pageIndex === 1 ? <Cart items = {menuItems} /> : <></>}
             { pageIndex === 2 ? <Checkout onSubmit = {
-                () => {setPageIndex(3);}
-            } /> : <></>}
+                () => {
+                    setPageIndex(3);
+                    const wholeCart = JSON.parse(sessionStorage.getItem("cart"));
+                    let data = [];
+                    menuItems.forEach((item) => {
+                        if (wholeCart[item.name] != null) {
+                            data.push({"name":item.name, "count":wholeCart[item.name], "comments": ""});
+                        }
+                    });
+                }
+            } totalPrice = {sessionStorage.getItem("total")}/> : <></>}
             { pageIndex === 3 ? <Dining /> : <></>}
             <Navbar fixed="bottom" bg={"light"} expand={"lg"} style={{"padding":"0px", 'width':'100%'}}>
                 <Row className={"justify-content-center"} style={{"width":"100%"}}>
