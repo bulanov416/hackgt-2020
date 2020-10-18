@@ -80,20 +80,22 @@ function AddMenuItem(props) {
                         let tempCategory = category;
                         let tempDescription = description;
                         createCategoryItem(tempName, tempCategory, tempDescription).then((response) => {
-                            console.log(response);
-                            database.collection('restaurants').doc('rFxSt5fTT3Kp4NphAomx').collection('menuItems').doc(uuidv4()).set({
-                                Category: tempCategory,
-                                Name: tempName,
-                                Price: tempPrice,
-                                Description: tempDescription,
-                                NCR_ID: response.id,
-                            })
-                                .then(function() {
-                                    document.location = "/";
-                                })
-                                .catch(function(err) {
-                                    console.error("error: ", err);
-                            })
+                            response.res.json().then((data) => {
+                                console.log(JSON.stringify(data));
+                            });
+                            // database.collection('restaurants').doc('rFxSt5fTT3Kp4NphAomx').collection('menuItems').doc(uuidv4()).set({
+                            //     Category: tempCategory,
+                            //     Name: tempName,
+                            //     Price: tempPrice,
+                            //     Description: tempDescription,
+                            //     NCR_ID: response.id,
+                            // })
+                            //     .then(function() {
+                            //         document.location = "/";
+                            //     })
+                            //     .catch(function(err) {
+                            //         console.error(err);
+                            // })
                         }).catch((error) => {
                             console.error(error);
                         })
