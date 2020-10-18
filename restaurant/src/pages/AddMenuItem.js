@@ -10,7 +10,7 @@ function uuidv4() {
       var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
       return v.toString(16);
     });
-} 
+}
 
 function AddMenuItem(props) {
     const { database } = props
@@ -86,6 +86,7 @@ function AddMenuItem(props) {
                         })
                         .then(function() {
                             console.log("IT WORKED");
+                            document.location = "/";
                         })
                         .catch(function(err) {
                             console.error("error: ", err);
