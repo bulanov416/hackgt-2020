@@ -28,12 +28,12 @@ function Firebase(props) {
                 let restaurantId = doc.id;
                 database.collection('restaurants').doc(doc.id).collection('menuItems').get().then(function(querySnapshot2) {
                     querySnapshot2.forEach(function(doc2) {
-                        let category = doc2.get('Category');
                         let description = doc2.get('Description');
+                        let category = doc2.get('Category');
                         let name = doc2.get('Name');
                         let uuid = doc2.id;
                         let price = doc2.get('Price');
-                        let currentMenuItem = new MenuItemObject(category, name, description, uuid, price);
+                        let currentMenuItem = new MenuItemObject(name, description, uuid, price, category);
                         menuItemsArray.push(currentMenuItem);
                     });
                     setMenuItems(menuItemsArray);

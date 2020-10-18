@@ -13,7 +13,6 @@ function Menu(props) {
     const sideItems = [];
     const dessertItems = [];
     const beverageItems = [];
-    const menuItems = [];
 
     useEffect(() => {
         if (!sessionStorage.getItem("cart")) {
@@ -22,8 +21,28 @@ function Menu(props) {
     }, []);
 
     if (items != null) {
-        items.forEach((item) => { if (item.name.length != 0) {
-            menuItems.push(<MenuItem name={item.name} description={item.description} price = {item.price} key={item.uuid}/>);
+        items.forEach((item) => { if (item.name.length != 0 && item.category === "Appetizer") {
+            appetizerItems.push(<MenuItem name={item.name} description={item.description} price = {item.price} key={item.uuid}/>);
+        }});
+    }
+    if (items != null) {
+        items.forEach((item) => { if (item.name.length != 0 && item.category === "Entree") {
+            entreeItems.push(<MenuItem name={item.name} description={item.description} price = {item.price} key={item.uuid}/>);
+        }});
+    }
+    if (items != null) {
+        items.forEach((item) => { if (item.name.length != 0 && item.category === "Side") {
+            sideItems.push(<MenuItem name={item.name} description={item.description} price = {item.price} key={item.uuid}/>);
+        }});
+    }
+    if (items != null) {
+        items.forEach((item) => { if (item.name.length != 0 && item.category === "Dessert") {
+            dessertItems.push(<MenuItem name={item.name} description={item.description} price = {item.price} key={item.uuid}/>);
+        }});
+    }
+    if (items != null) {
+        items.forEach((item) => { if (item.name.length != 0 && item.category === "Beverage") {
+            beverageItems.push(<MenuItem name={item.name} description={item.description} price = {item.price} key={item.uuid}/>);
         }});
     }
 
@@ -31,8 +50,41 @@ function Menu(props) {
         <Container style={{'padding':'50px'}}>
             <h1 class="text-center">Menu</h1>
             <br></br>
+            <h2>Appetizers</h2>
             {
-                (items != null) ? menuItems :
+                (items != null) ? appetizerItems :
+                <div style={{'width': '100%', 'textAlign': 'center'}}>
+                    <img src={loading} style={{'width': '20px'}} alt='loading...'/>
+                </div>
+            }
+            <br></br>
+            <h2>Entrees</h2>
+            {
+                (items != null) ? entreeItems :
+                <div style={{'width': '100%', 'textAlign': 'center'}}>
+                    <img src={loading} style={{'width': '20px'}} alt='loading...'/>
+                </div>
+            }
+            <br></br>
+            <h2>Sides</h2>
+            {
+                (items != null) ? sideItems :
+                <div style={{'width': '100%', 'textAlign': 'center'}}>
+                    <img src={loading} style={{'width': '20px'}} alt='loading...'/>
+                </div>
+            }
+            <br></br>
+            <h2>Desserts</h2>
+            {
+                (items != null) ? dessertItems :
+                <div style={{'width': '100%', 'textAlign': 'center'}}>
+                    <img src={loading} style={{'width': '20px'}} alt='loading...'/>
+                </div>
+            }
+            <br></br>
+            <h2>Beverages</h2>
+            {
+                (items != null) ? beverageItems :
                 <div style={{'width': '100%', 'textAlign': 'center'}}>
                     <img src={loading} style={{'width': '20px'}} alt='loading...'/>
                 </div>
