@@ -25,7 +25,6 @@ function App(props) {
         <div>
             <Navbar bg="light" expand="lg">
                 <Navbar.Brand href="#home">Olive Garden</Navbar.Brand>
-                <Button variant="outline-info">Cart</Button>
             </Navbar>
             <Menu items = {menuItems} />
             <Navbar fixed="bottom" bg={"light"} expand={"lg"} style={{"padding":"0px", 'width':'100%'}}>
