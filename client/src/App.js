@@ -19,11 +19,17 @@ function App(props) {
         <div>
             <Navbar bg="light" expand="lg">
                 <Navbar.Brand href="#home">Welcome to Olive Garden!</Navbar.Brand>
-                <Button variant="outline-info">View Cart</Button>
+                <Button variant="outline-info" onClick={() => {
+                    setPageIndex(1);
+                }}>View Cart</Button>
+                <Button variant="outline-info" onClick={() => {
+                    setPageIndex(0);
+                }}>View Menu</Button>
             </Navbar>
             { pageIndex === 0 ? <Menu items = {menuItems} /> : <></>}
             { pageIndex === 1 ? <Cart /> : <></>}
-            { pageIndex === 2 ? <Checkout onSubmit = {() => {setPageIndex(3);}
+            { pageIndex === 2 ? <Checkout onSubmit = {
+                () => {setPageIndex(3);}
             } /> : <></>}
             { pageIndex === 3 ? <Dining /> : <></>}
             <Navbar fixed="bottom" bg={"light"} expand={"lg"} style={{"padding":"0px", 'width':'100%'}}>
