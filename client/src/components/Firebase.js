@@ -26,19 +26,15 @@ function Firebase(props) {
         database.collection('restaurants').get().then(function(querySnapshot) {
             querySnapshot.forEach(function(doc) {
                 let restaurantId = doc.id;
-                console.log(restaurantId);
                 database.collection('restaurants').doc(doc.id).collection('menuItems').get().then(function(querySnapshot2) {
                     querySnapshot2.forEach(function(doc2) {
-                        console.log("CurrentID: ", doc2.id)
                         let category = doc2.get('Category');
                         let description = doc2.get('Description');
                         let name = doc2.get('Name');
-                        let currentMenuItem = new MenuItemObject(category, name, description);
+                        let uuid = doc2.id;
+                        let currentMenuItem = new MenuItemObject(category, name, description, uuid);
                         menuItemsArray.push(currentMenuItem);
-                        for (let i = 0; i < menuItemsArray.length; i++) {
-                            console.log("Cat: ", menuItemsArray[i].category, " || ", "Desc: ", menuItemsArray[i].description, " || ", "Name: ", menuItemsArray[i].name);
-                        }
-                    })
+                    });
                     setMenuItems(menuItemsArray);
                 });
             })

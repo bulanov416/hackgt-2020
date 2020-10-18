@@ -27,18 +27,13 @@ function App(props) {
 
     const { database, menuItems } = props;
 
-    console.log(menuItems);
-
     return (
         <div>
             <Navbar bg="light" expand="lg">
                 <Navbar.Brand href="#home">Jerry's Berrys</Navbar.Brand>
                 <Button variant="outline-info">Cart</Button>
             </Navbar>
-            <Cart />
-            <div style={{'width': '100%', 'textAlign': 'center'}}>
-                <img src={loading} style={{'width': '20px'}} alt='loading...'></img>
-            </div>
+            <Menu items = {menuItems} />
             <Navbar fixed="bottom" bg={"light"} expand={"lg"} style={{"padding":"0px", 'width':'100%'}}>
                 <Row className={"justify-content-center"} style={{"width":"100%"}}>
                     <Col style={{"paddingRight":"0px"}}>
