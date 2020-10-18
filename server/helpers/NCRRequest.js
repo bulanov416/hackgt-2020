@@ -74,7 +74,7 @@ function NCRRequest(path, body, headers, method) {
         headers: headers,
         body: convertVariables(body),
         redirect: 'follow',
-        url: environment["cors-anywhere"] + varpath,
+        url: varpath,
         mode: 'cors',
     };
 
@@ -96,4 +96,4 @@ function NCRRequest(path, body, headers, method) {
 
 }
 
-export default NCRRequest;
+exports.NCRRequest = NCRRequest;
