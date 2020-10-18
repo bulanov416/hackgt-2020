@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState } from 'react'
 
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
@@ -6,20 +6,14 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 import Menu from './pages/Menu.js';
-
-const firebaseConfig = {
-    apiKey: "AIzaSyAUrlthvN7-mzjShK52AfthkX6yepCuwgk",
-    authDomain: "hackgt2020-5847e.firebaseapp.com",
-    databaseURL: "https://hackgt2020-5847e.firebaseio.com",
-    projectId: "hackgt2020-5847e",
-    storageBucket: "hackgt2020-5847e.appspot.com",
-    messagingSenderId: "838591600721",
-    appId: "1:838591600721:web:829023369df328b7a18070"
-};
+import Cart from './pages/Cart.js';
+import Checkout from './pages/Checkout.js';
+import Dining from './pages/Dining.js';
 
 function App(props) {
 
     const { database, menuItems } = props;
+    const [ pageIndex, setPageIndex ] = useState(0);
 
     return (
         <div>
@@ -28,11 +22,17 @@ function App(props) {
             </Navbar>
             <h1 class="text-center">Menu</h1>
             <br></br>
-            <Menu items = {menuItems} />
+            { pageIndex === 0 ? <Menu items = {menuItems} /> : <></>}
+            { pageIndex === 1 ? <Cart /> : <></>}
+            { pageIndex === 2 ? <Checkout onSubmit = {() => {setPageIndex(3);}
+            } /> : <></>}
+            { pageIndex === 3 ? <Dining /> : <></>}
             <Navbar fixed="bottom" bg={"light"} expand={"lg"} style={{"padding":"0px", 'width':'100%'}}>
                 <Row className={"justify-content-center"} style={{"width":"100%"}}>
                     <Col style={{"paddingRight":"0px"}}>
-                        <Button size={'lg'} variant={"success"} style={{"width":"105%"}}>Checkout</Button>
+                        { (pageIndex < 2) ? <Button size={'lg'} variant={"success"} style={{"width":"105%"}} onClick={() => {
+                            setPageIndex(pageIndex + 1);
+                        }}> Checkout </Button> : <></>}
                     </Col>
                 </Row>
             </Navbar>

@@ -5,6 +5,9 @@ import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 
 function Checkout(props) {
+
+    const {onSubmit} = props;
+
     return(
         <Container style={{'padding':'200px'}}>
               <Alert variant="primary">
@@ -27,7 +30,7 @@ function Checkout(props) {
                     <Form.Label>Security Code</Form.Label>
                     <Form.Control type="text" placeholder="CVV" />
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button variant="primary" type="submit" onClick={onSubmit}>
                     Submit
                 </Button>
             </Form>
