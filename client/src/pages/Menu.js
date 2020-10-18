@@ -10,9 +10,9 @@ function Menu(props) {
 
     const menuItems = [];
     if (items != null) {
-        items.forEach((item) => {
+        items.forEach((item) => { if (item.name.length != 0) {
             menuItems.push(<MenuItem name={item.name} description={item.description} key={item.uuid}/>);
-        });
+        }});
     }
 
     return(
