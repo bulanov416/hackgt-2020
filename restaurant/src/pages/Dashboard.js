@@ -11,6 +11,8 @@ import Container from "react-bootstrap/Container";
 function Dashboard() {
     return(
         <Container style={{'padding':'0px'}}>
+            <h1 class = "text-center">Dashboard</h1>
+            <br></br>
             <DashboardItem total={"34"} days={"Thursday and Friday"}  times={"6-8 PM"}/>
         </Container>
     );

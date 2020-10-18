@@ -9,18 +9,21 @@ function DashboardItem(props) {
 
     return (
         <>
-            <Card>
+            <Card bg='secondary'>
                 <Card.Body>
-                <Card.Title>Dashboard</Card.Title>
-                    <Row style={{'width':'100%'}}>
-                        <Col>
-                            <Card.Text className="mb-2 text-muted">Successfully served { total } parties within the past week.</Card.Text>
-                        </Col>
-                        <Col style={{"paddingRight":"0px"}}>
-                            <Card.Text className="mb-2 text-muted"> {days} were the busiest days this week.</Card.Text>
-                            <Card.Text className="mb-2 text-muted"> {times} was the busiest time this week.</Card.Text>
-                        </Col>
-                    </Row>
+                    <p class="font-weight-bold">{days}</p><Card.Text className="mb-2"> were the busiest days this week.</Card.Text>
+                </Card.Body>
+            </Card>
+            <br></br>
+            <Card bg = 'success'>
+                <Card.Body>
+                        <Card.Text className="mb-2">Successfully served <b>{ total }</b> parties within the past week.</Card.Text>
+                </Card.Body>
+            </Card>
+            <br></br>
+            <Card bg='secondary'>
+                <Card.Body>
+                <p class="font-weight-bold">{times}</p><Card.Text className="mb-2"> was the busiest time this week.</Card.Text>
                 </Card.Body>
             </Card>
         </>
