@@ -18,32 +18,26 @@ function Menu(props) {
         if (!sessionStorage.getItem("cart")) {
             sessionStorage.setItem("cart", "{}");
         }
+        if (!sessionStorage.getItem("total")) {
+            sessionStorage.setItem("total", "0.00");
+        }
     }, []);
 
     if (items != null) {
-        items.forEach((item) => { if (item.name.length != 0 && item.category === "Appetizer") {
-            appetizerItems.push(<MenuItem name={item.name} description={item.description} price = {item.price} key={item.uuid}/>);
-        }});
-    }
-    if (items != null) {
-        items.forEach((item) => { if (item.name.length != 0 && item.category === "Entree") {
-            entreeItems.push(<MenuItem name={item.name} description={item.description} price = {item.price} key={item.uuid}/>);
-        }});
-    }
-    if (items != null) {
-        items.forEach((item) => { if (item.name.length != 0 && item.category === "Side") {
-            sideItems.push(<MenuItem name={item.name} description={item.description} price = {item.price} key={item.uuid}/>);
-        }});
-    }
-    if (items != null) {
-        items.forEach((item) => { if (item.name.length != 0 && item.category === "Dessert") {
-            dessertItems.push(<MenuItem name={item.name} description={item.description} price = {item.price} key={item.uuid}/>);
-        }});
-    }
-    if (items != null) {
-        items.forEach((item) => { if (item.name.length != 0 && item.category === "Beverage") {
-            beverageItems.push(<MenuItem name={item.name} description={item.description} price = {item.price} key={item.uuid}/>);
-        }});
+        items.forEach((item) => {
+            if (item.category === "Appetizer") {
+                appetizerItems.push(<MenuItem name={item.name} description={item.description} price={item.price}
+                                              key={item.uuid}/>);
+            } else if (item.category === "Entree") {
+                entreeItems.push(<MenuItem name={item.name} description={item.description} price = {item.price} key={item.uuid}/>);
+            } else if (item.category === "Side") {
+                sideItems.push(<MenuItem name={item.name} description={item.description} price = {item.price} key={item.uuid}/>);
+            } else if (item.category === "Dessert") {
+                dessertItems.push(<MenuItem name={item.name} description={item.description} price = {item.price} key={item.uuid}/>);
+            } else if (item.category === "Beverage") {
+                beverageItems.push(<MenuItem name={item.name} description={item.description} price = {item.price} key={item.uuid}/>);
+            }
+        });
     }
 
     return(
