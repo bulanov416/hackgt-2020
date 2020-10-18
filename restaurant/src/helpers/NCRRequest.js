@@ -1,6 +1,7 @@
 const CryptoJS = require("crypto-js");
 
 let environment = {
+    "cors-anywhere": "https://cors-anywhere.herokuapp.com/",
     "site-service": "https://gateway-staging.ncrcloud.com/site",
     "security-service": "https://gateway-staging.ncrcloud.com/security",
     "order-service": "https://gateway-staging.ncrcloud.com/order/3/orders/1",
@@ -34,7 +35,7 @@ const convertVariables = function(templateContent) {
 }
 
 // Extracts the signable content from the request
-const signableContent = function() {
+const signableContent = function(request) {
     const requestPath = convertVariables(request.url.trim()).replace(/^https?:\/\/[^\/]+\//, '/');
     const params = [
         request.method,
@@ -53,32 +54,44 @@ const uniqueKey = function(date) {
 };
 
 // Calculates the HMAC signature
-const calculateSignature = function() {
+const calculateSignature = function(req) {
     const date = new Date();
     environment['date'] = date.toGMTString();
     const key = uniqueKey(date);
-    const sc = signableContent();
+    const sc = signableContent(req);
     const hmac = CryptoJS.HmacSHA512(sc, key);
     return CryptoJS.enc.Base64.stringify(hmac);
 };
 
-function NCRRequest(raw, headers, method) {
+function NCRRequest(path, body, headers, method) {
+    const date = new Date();
+    const varpath = convertVariables(path);
+    headers.append("Date", date.toGMTString());
+    headers.append("Origin", varpath);
+
+    let requestOptions = {
+        method: method,
+        headers: headers,
+        body: convertVariables(body),
+        redirect: 'follow',
+        url: environment["cors-anywhere"] + varpath,
+        mode: 'cors',
+    };
+
+    let req = new Request(requestOptions.url, requestOptions);
+
     // Stores the generated HMAC signature under the access key
-    const signature = calculateSignature();
+    const signature = calculateSignature(req);
     const sharedKey = environment['bsp-shared-key'];
     environment['bsp-access-key'] = `AccessKey ${sharedKey}:${signature}`;
 
-    var requestOptions = {
-        method: method,
-        headers: headers,
-        body: convertVariables(raw),
-        redirect: 'follow'
-    };
+    requestOptions.headers.append("Authorization", environment['bsp-access-key']);
 
-    fetch("{{catalog-service}}/items/3/1", requestOptions)
-        .then(response => response.text())
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error));
+    return new Promise((resolve, reject) => {
+        fetch(req)
+            .then(response => resolve(response))
+            .catch(error => reject(error));
+    });
 
 }
 

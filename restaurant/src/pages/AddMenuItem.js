@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import InputGroup from 'react-bootstrap/InputGroup';
+import { createCategoryItem } from '../helpers/NCRHelpers.js';
 
 function uuidv4() {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
@@ -78,18 +79,25 @@ function AddMenuItem(props) {
                         let tempPrice = price;
                         let tempCategory = category;
                         let tempDescription = description;
-                        database.collection('restaurants').doc('rFxSt5fTT3Kp4NphAomx').collection('menuItems').doc(uuidv4()).set({
-                            Category: tempCategory,
-                            Name: tempName,
-                            Price: tempPrice,
-                            Description: tempDescription
+                        createCategoryItem(tempName, tempCategory, tempDescription).then((response) => {
+                            console.log(response);
+                            database.collection('restaurants').doc('rFxSt5fTT3Kp4NphAomx').collection('menuItems').doc(uuidv4()).set({
+                                Category: tempCategory,
+                                Name: tempName,
+                                Price: tempPrice,
+                                Description: tempDescription,
+                                NCR_ID: response.id,
+                            })
+                                .then(function() {
+                                    document.location = "/";
+                                })
+                                .catch(function(err) {
+                                    console.error("error: ", err);
+                            })
+                        }).catch((error) => {
+                            console.error(error);
                         })
-                        .then(function() {
-                            document.location = "/";
-                        })
-                        .catch(function(err) {
-                            console.error("error: ", err);
-                        })
+
                     }}>
                         Submit
                     </Button>
