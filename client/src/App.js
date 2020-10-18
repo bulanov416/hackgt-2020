@@ -26,6 +26,8 @@ function App(props) {
             <Navbar bg="light" expand="lg">
                 <Navbar.Brand href="#home">Olive Garden</Navbar.Brand>
             </Navbar>
+            <h1 class="text-center">Menu</h1>
+            <br></br>
             <Menu items = {menuItems} />
             <Navbar fixed="bottom" bg={"light"} expand={"lg"} style={{"padding":"0px", 'width':'100%'}}>
                 <Row className={"justify-content-center"} style={{"width":"100%"}}>
