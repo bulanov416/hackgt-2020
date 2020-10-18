@@ -8,9 +8,16 @@ function Menu(props) {
 
     const { items } = props;
 
+    const appetizerItems = [];
+    const entreeItems = [];
+    const sideItems = [];
+    const dessertItems = [];
+    const beverageItems = [];
     const menuItems = [];
+
     if (items != null) {
         items.forEach((item) => { if (item.name.length != 0) {
+
             menuItems.push(<MenuItem name={item.name} description={item.description} key={item.uuid}/>);
         }});
     }
