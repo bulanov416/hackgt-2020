@@ -8,10 +8,21 @@ function Menu(props) {
 
     const { items } = props;
 
+    const appetizerItems = [];
+    const entreeItems = [];
+    const sideItems = [];
+    const dessertItems = [];
+    const beverageItems = [];
     const menuItems = [];
+
     if (items != null) {
         items.forEach((item) => { if (item.name.length != 0) {
+<<<<<<< HEAD
             menuItems.push(<MenuItem name={item.name} description={item.description} price = {item.price} key={item.uuid}/>);
+=======
+
+            menuItems.push(<MenuItem name={item.name} description={item.description} key={item.uuid}/>);
+>>>>>>> ef53d81f37069d00131aa77b8a48b3a483d0286b
         }});
     }
 
