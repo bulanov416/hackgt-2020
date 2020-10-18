@@ -11,7 +11,8 @@ function App(props) {
   return (
     <div className="App">
       <RestaurantNavbar/>
-        <AddMenuItem database = { database }/>
+        {/* <AddMenuItem database = { database }/> */}
+        <ActiveOrders database = { database }/>
     </div>
   );
 }

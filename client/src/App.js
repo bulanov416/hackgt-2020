@@ -24,7 +24,7 @@ function App(props) {
     return (
         <div>
             <Navbar bg="light" expand="lg">
-                <Navbar.Brand href="#home">Jerry's Berrys</Navbar.Brand>
+                <Navbar.Brand href="#home">Olive Garden</Navbar.Brand>
                 <Button variant="outline-info">Cart</Button>
             </Navbar>
             <Menu items = {menuItems} />
