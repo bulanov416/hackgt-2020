@@ -18,7 +18,7 @@ function App(props) {
             }}/>
             { pageIndex === 0 ? <ActiveOrders database = { database }/> : <></>}
             { pageIndex === 1 ? <AddMenuItem database = { database }/> : <></>}
-                {/*<Dashboard/>*/}
+            { pageIndex === 2 ? <Dashboard /> : <></>}
         </div>
     );
 }
