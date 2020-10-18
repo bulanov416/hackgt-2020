@@ -4,8 +4,12 @@ import '../static/css/ActiveOrders.css';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import ListGroup from 'react-bootstrap/ListGroup'
+import ListGroup from 'react-bootstrap/ListGroup';
+import Card from "react-bootstrap/Card";
+import Container from "react-bootstrap/Container";
+
 import OrderItem from "../components/OrderItem";
+
 
 //page for viewing the active orders
 function ActiveOrders() {
@@ -14,7 +18,11 @@ function ActiveOrders() {
         <div className={"active-orders"}>
             <div className = "split left">
                 <div className = "tables">
-
+                    <Container>
+                        <Card>
+                            <Card.Body>TABLE 1</Card.Body>
+                        </Card>
+                    </Container>
                 </div>
             </div>
             <div className={"split right"}>
@@ -22,7 +30,8 @@ function ActiveOrders() {
                     <Col>
                         <h1 style={{"width":"100%"}}>Table 1</h1>
                         <ListGroup>
-                            <OrderItem name={"Strawberry"} quantity={1} notes={"Gluten Free"}/>
+                            <OrderItem name={"Strawberry"} quantity={1} notes={""}/>
+                            <OrderItem name={"Blueberry"} quantity={2} notes={"Extra Blue Please"}/>
                         </ListGroup>
                     </Col>
                 </Row>
